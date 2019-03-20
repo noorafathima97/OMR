@@ -37,6 +37,9 @@ options = trainingOptions('sgdm', ...
     'Verbose',false, ...
     'Plots','training-progress');
 trainedNet = trainNetwork(imds,layers,options);
+YPred = classify(net,imdsValidation);
+YValidation = imdsValidation.Labels;
+accuracy = sum(YPred == YValidation)/numel(YValidation)
 
 
 
